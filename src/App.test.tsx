@@ -1,8 +1,8 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('render div element', () => {
+test("render div element", () => {
   render(<App />);
-  expect(screen.getByText('react app')).toBeInTheDocument();
+  expect(screen.getByText("react app")).toBeInTheDocument();
 });
