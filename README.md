@@ -5,17 +5,15 @@ WTW this is a web application that displays a list of movies built using the Rea
 
 ## For review or development locally
 
-1. Clone repository
-    `git clone https://github.com/kerrimov/what-to-watch`
 
-2. Install dependencies
+ Install dependencies
     `yarn install`
 
-3. Run
+ Run
     `yarn start`
 
-4. Test
+ Test
     `yarn test`
 
-5. Build
+ Build
     `yarn build`
