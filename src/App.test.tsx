@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-test("render div element", () => {
+test("render", () => {
   render(<App />);
-  expect(screen.getByText("react app")).toBeInTheDocument();
+  expect(screen.getByText("WTW")).toBeInTheDocument();
 });
