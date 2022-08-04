@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { NotFound } from "../NotFound/NotFound";
-import { Login } from "../Login/Login";
-import { Movies } from "../Movies/Movies";
-import { Actors } from "../Actors/Actors";
-import { ActorDetail } from "../ActorDetail/ActorDetail";
+import { NotFound } from "../components/NotFound/NotFound";
+import { Login } from "../components/Login/Login";
+import { Movies } from "../components/Movies/Movies";
+import { Actors } from "../components/Actors/Actors";
+import { ActorDetail } from "../components/ActorDetail/ActorDetail";
 import { Path } from "./pathList";
-import { MovieDetail } from "../MovieDetail/MovieDetail";
+import { MovieDetail } from "../components/MovieDetail/MovieDetail";
 
 export const Router = () => (
   <Routes>
