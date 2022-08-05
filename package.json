@@ -2,7 +2,7 @@
   "name": "what-to-watch",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://EugenKakareka.github.io/what-to-watch",
+  "homepage":".",
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
