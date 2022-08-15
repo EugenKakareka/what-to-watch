@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useLocation } from "react-router";
 import { Box, Grid } from "@mui/material";
-import { useAppSelector } from "../../hooks/reduxTyped";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxTyped";
 import { ActorCard } from "./ActorCard/ActorCard";
 import { fetchActors } from "./ActorsApi/services/services";
 import { Actor } from "./types/ActorsPageType";
-import { AppDispatch } from "../../store/store";
-import { PaginationButtons } from "./PaginationButtons/PaginationButtons";
+import { PaginationButtons } from "../../shared/PaginationButtons/PaginationButtons";
 
 export const Actors: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
+  
   const location = useLocation();
 
   const { actors, page, pages, error } = useAppSelector((state) => state.actors);

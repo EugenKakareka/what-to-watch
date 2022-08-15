@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Avatar, Box, Button, Typography } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxTyped";
 import { fetchActor } from "./ActorDetailApi/services/services";
 import { IMAGE_API } from "../../shared/api/api";
-import { Avatar, Box, Button, Typography } from "@mui/material";
 
 const styles = {
   wrapper: {
