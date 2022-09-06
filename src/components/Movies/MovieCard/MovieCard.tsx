@@ -1,26 +1,31 @@
 import React from "react";
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import { Card, CardActionArea, CardHeader, CardMedia} from "@mui/material";
 import { Movie } from "../types/MoviesType";
-import { IMAGE_API } from "../../../shared/api/api";
+import { IMAGE_API_S } from "../../../shared/api/api";
+import { fetchMovie } from "../../MovieDetail/MovieDeatilApi/services/services";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../../hooks/reduxTyped";
+import { Path } from "../../../routes/pathList";
 
-export const MovieCard: React.FC<Movie> = ({ poster_path, original_title, release_date }) => {
+export const MovieCard: React.FC<Movie> = ({ id, poster_path, original_title, release_date }) => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
   return (
-    <Card sx={{ maxWidth: 300, flexGrow: 1 }}>
+    <Card
+      sx={{ width: 250, flexGrow: 1 }}
+      onClick={() => {
+        navigate(`${Path.HOME}:${id}`);
+        dispatch(fetchMovie(id));
+      }}
+    >
       <CardActionArea>
         <CardMedia
           component="img"
-          height="300"
-          image={`${IMAGE_API}${poster_path}`}
-          alt={original_title}
+          image={`${IMAGE_API_S}${poster_path}`}
+          alt="poster"
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {original_title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {release_date}
-          </Typography>
-        </CardContent>
+        <CardHeader title={original_title} subheader={release_date} />
       </CardActionArea>
     </Card>
   );

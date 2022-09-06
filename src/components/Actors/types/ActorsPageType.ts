@@ -4,7 +4,6 @@ export interface ActorsState {
   error: string;
   pages: number;
   page: number;
-  selectedId: number;
 }
 
 export interface Film {

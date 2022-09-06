@@ -4,7 +4,17 @@ import { Endpoints } from "./constants/endpoints";
 export const getMovies = async (page: number) => {
   const { data } = await api.get(Endpoints.MOVIES, {
     params: {
-      page: page,
+      page,
+    },
+  });
+  return data;
+};
+
+export const searchMovies = async (query: string, page?: number) => {
+  const { data } = await api.get(Endpoints.SEARCH, {
+    params: {
+      query,
+      page,
     },
   });
   return data;

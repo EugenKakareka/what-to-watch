@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import React, { useState } from "react";
 import { Avatar, Box, Button, Typography } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxTyped";
-import { fetchActor } from "./ActorDetailApi/services/services";
-import { IMAGE_API } from "../../shared/api/api";
+import { useAppSelector } from "../../hooks/reduxTyped";
+import { IMAGE_API_L } from "../../shared/api/api";
 
 const styles = {
   wrapper: {
@@ -31,25 +29,16 @@ const styles = {
 };
 
 export const ActorDetail = () => {
-  const dispatch = useAppDispatch();
-
-  const { id } = useParams();
-
-  const actorId = parseInt(id!.slice(1));
-
+  
   const actor = useAppSelector((state) => state.actorDetail.actor);
 
   const [showMore, setShowMore] = useState<boolean>(false);
-
-  useEffect(() => {
-    dispatch(fetchActor(actorId));
-  }, [dispatch, actorId]);
 
   return (
     <Box sx={styles.wrapper}>
       <Box sx={styles.leftSideBar}>
         <Avatar
-          src={`${IMAGE_API}${actor.profile_path}`}
+          src={`${IMAGE_API_L}${actor.profile_path}`}
           alt={actor.name}
           variant="square"
           sx={styles.avatar}

@@ -25,7 +25,7 @@ export const Actors: React.FC = () => {
   }, [dispatch, pageNow]);
 
   return (
-    <Box sx={{ mx: "auto", mt: 2, maxWidth: 1300 }}>
+    <Box sx={{ mx: "auto", mt: 2, maxWidth: 1400 }}>
       {error && <h1>{error}</h1>}
       <Grid container spacing={1} sx={{ pt: 2 }}>
         {actors &&

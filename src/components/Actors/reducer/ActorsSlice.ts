@@ -8,17 +8,12 @@ const initialState: ActorsState = {
   error: "",
   page: 1,
   pages: 1,
-  selectedId: 0,
 };
 
 export const actorsSlice = createSlice({
   name: "actors",
   initialState,
-  reducers: {
-    select(state, action: PayloadAction<number>) {
-      state.selectedId = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: {
     [fetchActors.pending.type]: (state) => {
       state.isFetching = true;

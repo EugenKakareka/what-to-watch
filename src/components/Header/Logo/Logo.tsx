@@ -1,12 +1,12 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import TheatersIcon from "@mui/icons-material/Theaters";
+//import TheatersIcon from "@mui/icons-material/Theaters";
 
 export const Logo = () => (
   <Box sx={{ pt: 2 }}>
-    <TheatersIcon sx={{ mr: 1 }} />
+    {/* <TheatersIcon sx={{ mr: 1 }} /> */}
     <Typography
-      variant="h5"
+      variant="h4"
       noWrap
       component="a"
       href="/"

@@ -7,6 +7,7 @@ import { Actors } from "../components/Actors/Actors";
 import { ActorDetail } from "../components/ActorDetail/ActorDetail";
 import { Path } from "./pathList";
 import { MovieDetail } from "../components/MovieDetail/MovieDetail";
+import { Favourites } from "../components/Favourites/Favourites";
 
 export const Router = () => (
   <Routes>
@@ -14,6 +15,7 @@ export const Router = () => (
     <Route path={Path.MOVIE} element={<MovieDetail />} />
     <Route path={Path.ACTORS} element={<Actors />} />
     <Route path={Path.ACTOR} element={<ActorDetail />} />
+    <Route path={Path.FAV} element = {<Favourites/>}/>
     <Route path={Path.LOGIN} element={<Login />} />
     <Route path={Path.NOT_FOUND} element={<NotFound />} />
   </Routes>

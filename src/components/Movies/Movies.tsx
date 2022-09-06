@@ -22,10 +22,10 @@ export const Movies = () => {
   }, [dispatch, pageNow]);
 
   return (
-    <Box sx={{ mx: "auto", mt: 2, maxWidth: 1300 }}>
-      <Grid container spacing={1} sx={{ pt: 2 }}>
+    <Box sx={{ mx: "auto", mt: 2, maxWidth: 1400 }}>
+      <Grid container spacing={2} justifyContent="space-around">
         {movies.map((movie: Movie) => (
-          <Grid key={movie.id} item xs={6} sm={4} md={3} sx={{ display: "flex" }}>
+          <Grid key={movie.id} item sx={{ display: "flex" }}>
             <MovieCard {...movie} />
           </Grid>
         ))}
