@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar, Box, Container } from "@mui/material";
 import { Navigation } from "./Navigation/Navigation";
-import { SearchField } from "./SearchField/SearchField";
+import { SearchField } from "../Search/Search";
 import { LoginButton } from "./LoginButton/LoginButton";
 import { Logo } from "./Logo/Logo";
 

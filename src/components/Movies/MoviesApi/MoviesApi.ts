@@ -9,13 +9,3 @@ export const getMovies = async (page: number) => {
   });
   return data;
 };
-
-export const searchMovies = async (query: string, page?: number) => {
-  const { data } = await api.get(Endpoints.SEARCH, {
-    params: {
-      query,
-      page,
-    },
-  });
-  return data;
-};

@@ -4,7 +4,6 @@ export interface MoviesState {
   error: string;
   page: number;
   pages: number;
-  search:string
 }
 
 export interface Movie {

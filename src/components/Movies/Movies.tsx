@@ -5,11 +5,24 @@ import { useAppDispatch, useAppSelector } from "../../hooks/reduxTyped";
 import { Movie } from "./types/MoviesType";
 import { fetchMovies } from "./MoviesApi/services/services";
 import { PaginationButtons } from "../../shared/PaginationButtons/PaginationButtons";
+import { searchMovie } from "../Search/searchApi/services/services";
 
 export const Movies = () => {
   const dispatch = useAppDispatch();
 
-  const { movies, page, pages } = useAppSelector((state) => state.movies);
+  const { search } = useAppSelector((state) => state.search);
+
+  let movies, page, pages;
+
+  if (search) {
+    movies = useAppSelector((state) => state.search.movies);
+    page = useAppSelector((state) => state.search.page);
+    pages = useAppSelector((state) => state.search.pages);
+  } else {
+    movies = useAppSelector((state) => state.movies.movies);
+    page = useAppSelector((state) => state.movies.page);
+    pages = useAppSelector((state) => state.movies.pages);
+  }
 
   const [pageNow, setPageNow] = useState(parseInt(location.search?.split("=")[1]) || 1);
 
@@ -18,8 +31,11 @@ export const Movies = () => {
   };
 
   useEffect(() => {
+    if (search) {
+      dispatch(searchMovie(search, pageNow));
+    }
     dispatch(fetchMovies(pageNow));
-  }, [dispatch, pageNow]);
+  }, [dispatch, search, pageNow]);
 
   return (
     <Box sx={{ mx: "auto", mt: 2, maxWidth: 1400 }}>

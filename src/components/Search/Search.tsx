@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useAppDispatch } from "../../../hooks/reduxTyped";
+import React, { useState, useRef } from "react";
 import { Box, Button, Input } from "@mui/material";
-import "./SearchField.scss";
-import { searchMovie } from "../../Movies/MoviesApi/services/services";
+import { useAppDispatch } from "../../hooks/reduxTyped";
+import { searchMovie } from "./searchApi/services/services";
+import "./Search.scss";
 
 const style = {
   button: {
@@ -25,13 +24,10 @@ const style = {
   },
 };
 
-type FormValues = {
-  name: string;
-};
-
 export const SearchField: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { register, handleSubmit } = useForm<FormValues>();
+
+  const ref = useRef<HTMLInputElement>();
 
   const [disabled, setDisabled] = useState(true);
 
@@ -43,19 +39,26 @@ export const SearchField: React.FC = () => {
     }
   }
 
-  function startSearchMovie(value: { name: string; }) {
-    dispatch(searchMovie(value.name));
-  }
+  const handleClear = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    startSearchMovie(ref.current!.value);
+    ref.current!.value = "";
+    setDisabled(true);
+  };
+
+  const startSearchMovie = (query: string) => {
+    dispatch(searchMovie(query));
+  };
 
   return (
     <Box className="search">
       <Input
         className="input"
         placeholder="Enter movie name"
-        id="name"
-        {...register("name")}
+        id="query"
         onChange={onChange}
         sx={style.input}
+        inputRef={ref}
       />
       <Button
         variant="contained"
@@ -63,7 +66,7 @@ export const SearchField: React.FC = () => {
         className="button"
         sx={style.button}
         disabled={disabled}
-        onClick={handleSubmit(startSearchMovie)}
+        onClick={handleClear}
       >
         Search
       </Button>
